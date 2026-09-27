@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PHARB ADMIN — لوحة الإدارة المركزية</title>
+  <style>
+    :root {
+      --bg: #0B192C;
+      --card: #161B26;
+      --primary: #2563EB;
+      --accent: #38BDF8;
+      --text: #F1F5F9;
+      --muted: #94A3B8;
+    }
+    body {
+      margin: 0;
+      font-family: 'Cairo', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      padding: 24px;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #2A344B;
+      padding-bottom: 16px;
+      margin-bottom: 24px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+    }
+    .card {
+      background: var(--card);
+      border-radius: 16px;
+      padding: 18px;
+      border: 1px solid #2A344B;
+    }
+    .metric-val {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: var(--accent);
+      margin-top: 8px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div>
+      <h1>PHARB ADMIN PANEL</h1>
+      <p style="color: var(--muted); margin: 0;">لوحة التحكم التنفيذية وإدارة المحتوى والتوثيق — تواصل. أبدع. اكتشف.</p>
+    </div>
+    <div>حالة الخوادم: PostgreSQL + Redis + CDN متصلة ✅</div>
+  </header>
+  <section class="grid">
+    <div class="card"><div>المستخدمون النشطون (DAU / MAU)</div><div class="metric-val">142,000</div></div>
+    <div class="card"><div>المنشورات والفيديوهات القصيرة</div><div class="metric-val">89,410</div></div>
+    <div class="card"><div>القنوات التعليمية والتجارية</div><div class="metric-val">3,280</div></div>
+    <div class="card"><div>طابور مراجعة البلاغات والتوثيق</div><div class="metric-val">100% آمن</div></div>
+  </section>
+</body>
+</html>

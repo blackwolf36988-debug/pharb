@@ -1,0 +1,162 @@
+openapi: 3.1.0
+info:
+  title: PHARB Social Network REST & Real-Time API
+  version: 1.0.0
+  description: >
+    Official OpenAPI 3.1 specification for PHARB Social Network
+    (Connect. Create. Discover. — تواصل. أبدع. اكتشف.)
+servers:
+  - url: https://api.pharb.network/v1
+    description: Production API Gateway
+paths:
+  /auth/login:
+    post:
+      summary: Authenticate user via email, username, or phone
+      tags: [Auth]
+      responses:
+        '200':
+          description: Returns signed JWT Access Token & Refresh Token
+  /auth/register:
+    post:
+      summary: Register new Personal, Creator, Business, or Education account
+      tags: [Auth]
+      responses:
+        '201':
+          description: Account created with PBKDF2-HMAC-SHA256 password hash
+  /auth/verify-otp:
+    post:
+      summary: Verify 6-digit OTP code
+      tags: [Auth]
+      responses:
+        '200':
+          description: OTP verified
+  /users/{id}:
+    get:
+      summary: Get user account details
+      tags: [Users]
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: User object
+  /profiles/{username}:
+    get:
+      summary: Retrieve public or private user profile
+      tags: [Profiles]
+      parameters:
+        - name: username
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Profile details with followers, posts, channels, communities
+  /posts:
+    get:
+      summary: Get paginated smart feed (For You, Following, Latest, Communities, Education, Trending)
+      tags: [Posts]
+      responses:
+        '200':
+          description: Paginated list of posts
+    post:
+      summary: Publish a new post (Text, Image, Video, Poll, Audio, File, Question, Link)
+      tags: [Posts]
+      responses:
+        '201':
+          description: Post created
+  /comments:
+    post:
+      summary: Add comment to a post or short video
+      tags: [Comments]
+      responses:
+        '201':
+          description: Comment added
+  /reactions:
+    post:
+      summary: React to post (LIKE, LOVE, LAUGH, WOW, SAD, ANGRY)
+      tags: [Reactions]
+      responses:
+        '200':
+          description: Reaction updated
+  /follow/{targetUserId}:
+    post:
+      summary: Follow user or send follow request to private account
+      tags: [Follow]
+      responses:
+        '200':
+          description: Follow state updated
+  /stories:
+    get:
+      summary: Fetch active 24-hour stories
+      tags: [Stories]
+      responses:
+        '200':
+          description: Active stories list
+  /videos/shorts:
+    get:
+      summary: Fetch vertical adaptive bitrate short videos (PHARB Shorts)
+      tags: [Videos]
+      responses:
+        '200':
+          description: Shorts list with HLS adaptive manifests
+  /messages/conversations:
+    get:
+      summary: List direct and group conversations
+      tags: [Messages]
+      responses:
+        '200':
+          description: Conversations list
+  /notifications:
+    get:
+      summary: Retrieve real-time push and security notifications
+      tags: [Notifications]
+      responses:
+        '200':
+          description: Notifications list
+  /search:
+    get:
+      summary: Search users, posts, shorts, hashtags, communities, and channels
+      tags: [Search]
+      responses:
+        '200':
+          description: Categorized search results
+  /communities:
+    get:
+      summary: List and filter PHARB Communities
+      tags: [Communities]
+      responses:
+        '200':
+          description: Communities list
+  /channels:
+    get:
+      summary: List PHARB Channels (Education, Business, Creators)
+      tags: [Channels]
+      responses:
+        '200':
+          description: Channels list
+  /live:
+    get:
+      summary: List active PHARB Live streams
+      tags: [Live]
+      responses:
+        '200':
+          description: Live streams list
+  /reports:
+    post:
+      summary: Report content or account for moderation
+      tags: [Reports]
+      responses:
+        '201':
+          description: Report queued for moderation
+  /admin/metrics:
+    get:
+      summary: Executive metrics (DAU, MAU, Retention, Moderation Queue)
+      tags: [Admin]
+      responses:
+        '200':
+          description: Admin analytics payload

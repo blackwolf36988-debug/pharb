@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">PHARB</string>
+    <string name="tagline_ar">تواصل. أبدع. اكتشف.</string>
+    <string name="tagline_en">Connect. Create. Discover.</string>
+    <string name="onboarding_title_1">تواصل مع العالم</string>
+    <string name="onboarding_desc_1">بيئة اجتماعية هادئة، سريعة، وآمنة تجمعك بمن يشاركونك الاهتمامات والأفكار حول العالم.</string>
+    <string name="onboarding_title_2">شارك أفكارك ومحتواك</string>
+    <string name="onboarding_desc_2">انشر النصوص، الصور، الفيديوهات القصيرة، القصص، والاستطلاعات بأدوات ذكية وتصميم مريح للعين.</string>
+    <string name="onboarding_title_3">اكتشف ما يهمك</string>
+    <string name="onboarding_desc_3">استكشف المجتمعات، القنوات التعليمية والتجارية، والبث المباشر بنظام توصيات شفاف تحت سيطرتك.</string>
+    <string name="onboarding_title_4">PHARB — عالمك الاجتماعي في مكان واحد</string>
+    <string name="onboarding_desc_4">أقل ازدحامًا، أكثر وضوحًا، وتجربة استخدام أصلية مصممة لراحتك وخصوصيتك.</string>
+    <string name="start_now">ابدأ الآن</string>
+    <string name="nav_home">الرئيسية</string>
+    <string name="nav_discover">اكتشف</string>
+    <string name="nav_create">إنشاء</string>
+    <string name="nav_messages">الرسائل</string>
+    <string name="nav_profile">حسابي</string>
+</resources>

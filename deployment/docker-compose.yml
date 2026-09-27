@@ -1,0 +1,35 @@
+version: "3.9"
+
+services:
+  pharb-api:
+    build: ../backend
+    container_name: pharb_api_service
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=postgresql://pharb:pharb_secure_pass@postgres:5432/pharb_db
+      - REDIS_URL=redis://redis:6379/0
+    depends_on:
+      - postgres
+      - redis
+    restart: unless-stopped
+
+  postgres:
+    image: postgres:16-alpine
+    container_name: pharb_postgres
+    environment:
+      POSTGRES_USER: pharb
+      POSTGRES_PASSWORD: pharb_secure_pass
+      POSTGRES_DB: pharb_db
+    volumes:
+      - ../database/schema.sql:/docker-entrypoint-initdb.d/01-schema.sql:ro
+    ports:
+      - "5432:5432"
+    restart: unless-stopped
+
+  redis:
+    image: redis:7-alpine
+    container_name: pharb_redis_cache
+    ports:
+      - "6379:6379"
+    restart: unless-stopped
